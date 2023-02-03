@@ -26,10 +26,10 @@ Route::get('/pizzas', function () {
     ['type' => 'veg supreme', 'base' => 'thin & crispy']
   ];
 
-  $name = request('name');
-
   return view('pizzas', [
     'pizzas' => $pizzas,
-    'name' => $name,
+    'name' =>  request('name'),
+    'age' =>  request('age')
   ]);
+
 });

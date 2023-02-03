@@ -8,6 +8,7 @@
     </div>
 
     <p>{{ $name }}</p>
+    <p>{{ $age }}</p>
 
 
     @foreach($pizzas as $pizza)
