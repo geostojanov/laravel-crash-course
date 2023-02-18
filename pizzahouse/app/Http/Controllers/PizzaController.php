@@ -8,12 +8,9 @@ use Illuminate\Http\Request;
 class PizzaController extends Controller
 {
   public function index() {
-    // get data from a database
-    /*$pizzas = Pizza::all();*/
-    /*$pizzas = Pizza::orderBy('name', 'desc')->get();*/
     $pizzas = Pizza::latest()->get();
 
-    return view('pizzas', [
+    return view('pizzas.index', [
       'pizzas' => $pizzas,
       'name' =>  request('name'),
       'age' =>  request('age')
@@ -21,6 +18,10 @@ class PizzaController extends Controller
   }
 
   public function show($id) {
-    return view('details', ['id' => $id]);
+    return view('pizzas.show', ['id' => $id]);
+  }
+
+  public function create() {
+    return view('pizzas.create');
   }
 }
